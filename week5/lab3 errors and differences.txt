@@ -1,0 +1,21 @@
+ERRORS
+0	12	15:25:38	INSERT INTO Department (dept_name) VALUES (NULL)	Error Code: 1048. Column 'dept_name' cannot be null	0.016 sec
+
+0	13	15:26:12	INSERT INTO Course (course_code, course_title, credit_units) VALUES ('TST101', 'Test', 9)	Error Code: 3819. Check constraint 'chk_credit_units' is violated.	0.000 sec
+
+
+0	14	15:26:28	INSERT INTO Student (matric_no, full_name, dept_id) VALUES ('TEST001', 'Test', 999)	Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`sen307_vug_sen_24_11799`.`student`, CONSTRAINT `student_ibfk_1` FOREIGN KEY (`dept_id`) REFERENCES `department` (`dept_id`))	0.016 sec
+
+
+0	15	15:26:42	INSERT INTO Student (matric_no, full_name, gender) VALUES ('TEST002', 'Test', 'X')	Error Code: 1265. Data truncated for column 'gender' at row 1	0.000 sec
+
+3	19	15:30:11	INSERT INTO Department (dept_name) VALUES ('Test Dept')	1 row(s) affected	0.000 sec
+
+
+0	20	15:30:22	INSERT INTO Department (dept_name) VALUES ('Test Dept')	Error Code: 1062. Duplicate entry 'Test Dept' for key 'department.dept_name'	0.016 sec
+
+THE DIFFERENCES
+Teaching became CourseAllocation.
+session became academic_session.
+There are extra columns and constraints.
+Course now has a department.
